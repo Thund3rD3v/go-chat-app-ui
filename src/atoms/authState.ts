@@ -5,14 +5,15 @@ import { nprogress } from "@mantine/nprogress";
 type TAuthState =
   | {
       status: "authenticated";
+      id: number;
       username: string;
       token: string;
     }
   | {
-      status: "unauthenticated";
-    }
-  | {
-      status: "loading";
+      status: "unauthenticated" | "loading";
+      id?: number;
+      username?: string;
+      token?: string;
     };
 
 const authState = atom<TAuthState>({
@@ -41,6 +42,7 @@ const authState = atom<TAuthState>({
           if (res.ok) {
             setSelf({
               status: "authenticated",
+              id: data.id,
               username: data.username,
               token,
             });

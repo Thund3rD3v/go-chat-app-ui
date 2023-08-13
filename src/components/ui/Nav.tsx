@@ -6,7 +6,6 @@ import {
   createStyles,
   Stack,
   rem,
-  Divider,
 } from "@mantine/core";
 import {
   IconLogout,
@@ -115,8 +114,7 @@ function Nav() {
       <Center>
         <Logo />
       </Center>
-      <Divider mt={24} mb={6} />
-      <Navbar.Section grow>
+      <Navbar.Section mt={36} grow>
         <Stack justify="center" spacing="xs">
           {links}
         </Stack>

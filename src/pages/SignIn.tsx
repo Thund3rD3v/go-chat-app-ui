@@ -60,9 +60,21 @@ function SignInPage() {
       const data = await res.json();
 
       if (res.ok) {
-        setAuth({ status: "authenticated", username, token: data.token });
+        setAuth({
+          status: "authenticated",
+          username: data.username,
+          id: data.id,
+          token: data.token,
+        });
       } else {
-        console.log("E");
+        if (res.status == 404) {
+          notifications.show({
+            color: "red",
+            title: "User Not Found",
+            message: data.message,
+          });
+          return;
+        }
         notifications.show({
           color: "red",
           title: "Error",

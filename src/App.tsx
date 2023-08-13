@@ -6,6 +6,7 @@ import Nav from "./components/ui/Nav";
 import ProfilePage from "./pages/Profile";
 import { Box } from "@mantine/core";
 import SignUpPage from "./pages/SignUp";
+import ChatPage from "./pages/Chat";
 
 function App() {
   const auth = useRecoilValue(authState);
@@ -25,6 +26,7 @@ function App() {
               }}>
               <Nav />
               <Routes>
+                <Route path="/" element={<ChatPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
               </Routes>
             </Box>
